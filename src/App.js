@@ -45,8 +45,10 @@ function App() {
                         name={crypto.name}
                         image={crypto.image}
                         symbol={crypto.symbol}
-                        volume={crypto.market_cap}
+                        volume={crypto.total_volume}
                         price={crypto.current_price}
+                        priceChange={crypto.price_change_percentage_24h}
+                        marketcap={crypto.market_cap}
                     />
                 );
             })}

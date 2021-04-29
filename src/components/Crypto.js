@@ -1,6 +1,15 @@
 import React from 'react';
+import './Crypto.css';
 
-const Crypto = ({ image, name, symbol, price, volume }) => {
+const Crypto = ({
+    image,
+    name,
+    symbol,
+    price,
+    volume,
+    priceChange,
+    marketcap,
+}) => {
     return (
         <div className='crypto-container'>
             <div className='crypto-row'>
@@ -12,6 +21,18 @@ const Crypto = ({ image, name, symbol, price, volume }) => {
                 <div className='crypto-data'>
                     <p className='crypto-price'>${price}</p>
                     <p className='crypto-volume'>${volume.toLocaleString()}</p>
+                    {priceChange < 0 ? (
+                        <p className='crypto-percent red'>
+                            {priceChange.toFixed(2)}%
+                        </p>
+                    ) : (
+                        <p className='crypto-percent green'>
+                            {priceChange.toFixed(2)}%
+                        </p>
+                    )}
+                    <p className='crypto-marketcap'>
+                        Mkt Cap: ${marketcap.toLocaleString()}
+                    </p>
                 </div>
             </div>
         </div>
